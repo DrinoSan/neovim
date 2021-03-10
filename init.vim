@@ -85,7 +85,7 @@ nnoremap <leader>Y gg"+yG"
 " Opening Explorer
 " with d new folder
 " with % new file
-nnoremap <leader>pv :Sex!<CR>
+nnoremap <leader>pv :Ex!<CR>
 
 " in VISUAL mode durch die zeilen gehen
 vnoremap J :m '>+1<CR>gv=gv
