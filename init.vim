@@ -6,6 +6,7 @@ source ~/.config/nvim/vim-plug/plugins.vim
 source ~/.config/nvim/plug-config/gitgutter.vim
 source ~/.config/nvim/plug-config/telescope.vim
 source ~/.config/nvim/plug-config/lsp.vim
+" luafile ~/.config/nvim/lua/treesitter-config.lua
 " source ~/.config/nvim/plug-config/sneak.vim
 
 syntax on
@@ -33,10 +34,14 @@ set ic
 set undodir=~/.var/app/io.neovim.nvim
 set undofile
 set scrolloff=8
-set signcolumn
+set signcolumn=yes
 set colorcolumn=80
 " hi ColorColumn ctermbg=red guibg=lightgrey
 " set updatetime=50
+set updatetime=50
+
+
+
 
 
 let g:gruvbox_contrast_dark = 'hard'
@@ -106,16 +111,72 @@ vnoremap K :m '<-2<CR>gv=gv
         let NERDTreeBookmarksFile = '~/.vim' . '/NERDTreeBookmarks'
     endif
 
-" Shortcutting split navigation, saving a keypress:
+" " Shortcutting split navigation, saving a keypress:
 	map <C-h> <C-w>h
 	map <C-j> <C-w>j
 	map <C-k> <C-w>k
 	map <C-l> <C-w>l
 
 " Save file as sudo on files that require root permission
-	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
+nnoremap <C-k> :cprev<CR>
+nnoremap <C-j> :cnext<CR>
+nnoremap <C-q> :call ToggleQFList(1)<CR>
+nnoremap <C-l> :call ToggleQFList(0)<CR>
 
+" let g:the_primeagen_qf_l = 0
+" let g:the_primeagen_qf_g = 0
 
+" fun! ToggleQFList(global)
+"     if a:global
+"         if g:the_primeagen_qf_g == 0
+"             let g:the_primeagen_qf_g = 1
+"             copen
+"         else
+"             let g:the_primeagen_qf_g = 0
+"             cclose
+"         endif
+"     else
+"         if g:the_primeagen_qf_l == 0
+"             let g:the_primeagen_qf_l = 1
+"             lopen
+"         else
+"             let g:the_primeagen_qf_l = 0
+"             cclose
+"         endif
+"     endif
+" endfun
+
+let g:the_primeagen_qf_l = 0
+let g:the_primeagen_qf_g = 0
+
+fun! ToggleQFList(global)
+    if a:global
+        let g:the_primeagen_qf_g = 0
+        cclose
+    else
+        let g:the_primeagen_qf_l = 0
+        lclose
+    endif
+    if a:global
+        let g:the_primeagen_qf_g = 0
+        cclose
+    else
+        let g:the_primeagen_qf_l = 0
+    endif
+        lclose
+endfun
 
     """"""""""""""""""""""""""""""""""""""""
+
+
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+  },
+}
+EOF

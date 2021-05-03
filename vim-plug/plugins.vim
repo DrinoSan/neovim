@@ -38,8 +38,12 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tomlion/vim-solidity'
 Plug 'puremourning/vimspector'
 Plug 'vuciv/vim-bujo'
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-    call plug#end()
+Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'darrikonn/vim-gofmt', { 'do': ':GoUpdateBinaries' }
+" Plug 'nvim-treesitter/playground'
+" Plug 'p00f/nvim-ts-rainbow'
+call plug#end()
 
 
     " LINTER NEOMAKE AUS GITHUB COMMANDO
