@@ -15,3 +15,7 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>vrc :lua require('sandiscope.sandi').search_dotfiles()<CR>
 nnoremap <leader>m :lua require('telescope.builtin').marks()<CR>
 nnoremap <leader>gc :lua require('telescope.builtin').git_branches()<CR>
+nnoremap <leader>gx :lua require('telescope.builtin').git_status()<CR>
+nnoremap <leader>mp :lua require('telescope.builtin').man_pages()<CR>
+
+

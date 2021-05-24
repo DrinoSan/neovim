@@ -7,45 +7,31 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
-Plug 'preservim/nerdtree'
-" Plug 'PotatoesMaster/i3-vim-syntax'
-Plug 'jreybert/vimagit'
 Plug 'bling/vim-airline'
-" gcc auskommentieren
-Plug 'tpope/vim-commentary'
-Plug 'ap/vim-css-color'
-Plug 'tpope/vim-eunuch'
-
+Plug 'preservim/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
+"Plug 'airblade/vim-rooter'
+Plug 'jiangmiao/auto-pairs'
+" Plug 'tpope/vim-fugitive'
 Plug 'gruvbox-community/gruvbox'
 Plug 'mbbill/undotree'
+
+"Telescope
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
+
+"Lsp
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/lsp-status.nvim'
 Plug 'nvim-lua/diagnostic-nvim'
-Plug 'airblade/vim-gitgutter'
-" Plug 'sbdchd/neoformat'
 
-Plug 'airblade/vim-rooter'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'vim-airline/vim-airline-themes'
-Plug 'jiangmiao/auto-pairs'
-Plug 'tomlion/vim-solidity'
-Plug 'puremourning/vimspector'
-Plug 'vuciv/vim-bujo'
-Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
+
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'darrikonn/vim-gofmt', { 'do': ':GoUpdateBinaries' }
-" Plug 'nvim-treesitter/playground'
-" Plug 'p00f/nvim-ts-rainbow'
 call plug#end()
 
 
-    " LINTER NEOMAKE AUS GITHUB COMMANDO
-    " When writing a buffer (no delay).
-    "call neomake#configure#automake('w')
