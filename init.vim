@@ -36,13 +36,12 @@ set updatetime=50
 
 
 
-" let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_contrast_dark = 'hard'
 set background=dark
-" colorscheme gruvbox
+colorscheme gruvbox
 
 
 " highlight Normal guibg=none
-let g:airline_theme="deus"
 " set go=a
 set mouse=a
 set clipboard+=unnamedplus
