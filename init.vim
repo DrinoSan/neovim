@@ -30,10 +30,7 @@ set ic
 set undodir=~/.var/app/io.neovim.nvim
 set undofile
 set scrolloff=8
-set updatetime=50
-
-
-
+set updatetime=30
 
 
 let g:gruvbox_contrast_dark = 'hard'
@@ -52,9 +49,6 @@ set title
 """"""""""""""""""""""""""""""""""""""""""
 set termguicolors
 " set highlight Comment guifg=green
-
-
-
 
 
 nnoremap <silent> <Leader>+ :vertical resize +5<CR>
@@ -76,9 +70,6 @@ nnoremap <leader>pv :Ex!<CR>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-
-
-
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 set splitbelow splitright
 
@@ -96,32 +87,6 @@ nnoremap <C-k> :cprev<CR>
 nnoremap <C-j> :cnext<CR>
 nnoremap <C-q> :call ToggleQFList(1)<CR>
 " nnoremap <C-l> :call ToggleQFList(0)<CR>
-
-
-
-"ES GEHT NICHT KÜMMERE MICH IWAN MAL DARUM
-" let g:the_primeagen_qf_l = 0
-" let g:the_primeagen_qf_g = 0
-
-" fun! ToggleQFList(global)
-"     if a:global
-"         if g:the_primeagen_qf_g == 0
-"             let g:the_primeagen_qf_g = 1
-"             copen
-"         else
-"             let g:the_primeagen_qf_g = 0
-"             cclose
-"         endif
-"     else
-"         if g:the_primeagen_qf_l == 0
-"             let g:the_primeagen_qf_l = 1
-"             lopen
-"         else
-"             let g:the_primeagen_qf_l = 0
-"             cclose
-"         endif
-"     endif
-" endfun
 
 let g:the_primeagen_qf_l = 0
 let g:the_primeagen_qf_g = 0
@@ -144,10 +109,6 @@ fun! ToggleQFList(global)
 endfun
 
     """"""""""""""""""""""""""""""""""""""""
-
-
-
-
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
