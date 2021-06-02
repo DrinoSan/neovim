@@ -33,9 +33,9 @@ set scrolloff=8
 set updatetime=30
 
 
-let g:gruvbox_contrast_dark = 'hard'
+"let g:gruvbox_contrast_dark = 'hard'
 set background=dark
-colorscheme gruvbox
+"colorscheme gruvbox
 
 
 " highlight Normal guibg=none
