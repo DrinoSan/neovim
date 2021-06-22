@@ -33,7 +33,15 @@ autocmd Filetype rust setlocal omnifunc=v:lua.vim.lsp.omnifunc
 " Loads lua config
 lua << EOF
 local on_attach = require'completion'.on_attach
-require'lspconfig'.pyright.setup{ on_attach=on_attach }
+
+local util = require("lspconfig/util")
+require'lspconfig'.pyright.setup{ 
+    on_attach=on_attach,
+    root_dir = function(fname)
+        return util.root_pattern(".git", "setup.py",  "setup.cfg", "pyproject.toml", "requirements.txt")(fname) or
+          util.path.dirname(fname)
+          end;
+    }
 
 require'lspconfig'.clangd.setup {
     on_attach = on_attach, 
