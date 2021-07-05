@@ -10,9 +10,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 Plug 'bling/vim-airline'
 Plug 'preservim/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
-"Plug 'airblade/vim-rooter'
-"Plug 'jiangmiao/auto-pairs'
-" Plug 'tpope/vim-fugitive'
 Plug 'gruvbox-community/gruvbox'
 Plug 'mbbill/undotree'
 
@@ -25,8 +22,6 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 "Lsp
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
-"Plug 'nvim-lua/lsp-status.nvim'
-"Plug 'nvim-lua/diagnostic-nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'darrikonn/vim-gofmt', { 'do': ':GoUpdateBinaries' }

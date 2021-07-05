@@ -44,7 +44,7 @@ set mouse=a
 set clipboard+=unnamedplus
 set title
 
-" highlight Pmenu ctermbg=gray guibg=gray
+ highlight Pmenu ctermbg=gray guibg=gray
 
 """"""""""""""""""""""""""""""""""""""""""
 set termguicolors
@@ -86,33 +86,52 @@ cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 nnoremap <C-k> :cprev<CR>
 nnoremap <C-j> :cnext<CR>
 nnoremap <C-q> :call ToggleQFList(1)<CR>
-" nnoremap <C-l> :call ToggleQFList(0)<CR>
+nnoremap <leader>q :call ToggleQFList(0)<CR>
+nnoremap <leader>k :lnext<CR>zz
+nnoremap <leader>j :lprev<CR>zz
 
 let g:the_primeagen_qf_l = 0
 let g:the_primeagen_qf_g = 0
 
 fun! ToggleQFList(global)
     if a:global
-        let g:the_primeagen_qf_g = 0
-        cclose
+        if g:the_primeagen_qf_g == 1
+            let g:the_primeagen_qf_g = 0
+            cclose
+        else
+            let g:the_primeagen_qf_g = 1
+            copen
+        end
     else
-        let g:the_primeagen_qf_l = 0
-        lclose
+        if g:the_primeagen_qf_l == 1
+            let g:the_primeagen_qf_l = 0
+            lclose
+        else
+            let g:the_primeagen_qf_l = 1
+            lopen
+        end
     endif
-    if a:global
-        let g:the_primeagen_qf_g = 0
-        cclose
-    else
-        let g:the_primeagen_qf_l = 0
-    endif
-        lclose
 endfun
 
     """"""""""""""""""""""""""""""""""""""""
 
+
+
+" Search and delete
+nnoremap <expr> <leader>ds ":%s/" . input("Delete: ") . "//g\<CR>"
+
+" Search and rename
+nnoremap <expr> <leader>rn ":%s/" . input("Rename: ") . "/" . input("New name: ") . "/g\<CR>"
+
+
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = {
+      "go",
+      "python",
+      "cpp",
+      "c"
+      },
   highlight = {
     enable = true,              -- false will disable the whole extension
   },
